@@ -70,7 +70,7 @@ async def update_time_interval(message: types.Message):
     is_admin = await db.select_admin(adminid=message.from_user.id)
     if is_admin:
         new_time = message.get_args()
-        if int(new_time)>10:
+        if int(new_time)>9:
             try:
                 await db.update_time(int(new_time))
                 await message.reply("Time interval updated successfully!")
@@ -95,7 +95,7 @@ async def update_time_interval(message: types.Message):
             except Exception as e:
                 await message.reply(f"An error occurred while updating the time interval: {e}")
         else:
-            await message.reply("Please provide a new time interval value.")
+            await message.reply("Please enter a new time interval value, maximum 10 seconds.")
     else:
         await message.reply("You are not authorized to update the time interval.")
 

@@ -3,14 +3,21 @@ import json
 from aiogram import types
 from loader import dp, db
 
+from datetime import datetime
 
 async def sendAllPositions():
     bot_status = await db.select_status()
     if bot_status['status']:
+        # await dp.bot.send_message(chat_id=-1002025769840, text="================")
         uid_name_list = await db.select_uid_name_list()
         for uid, trader_name in uid_name_list:
             trader_orders = await db.select_trader_orders_by_uid(uid)
-            message_text = (f"<b>🥷🏾 | Trader : </b> {trader_name} \n" + f"———————————————\n")
+
+            current_time = datetime.now().strftime('%d.%m.%Y, %I:%M %p')
+            message_text = (f"<b>🥷🏾 | Trader : </b> {trader_name} \n"
+                            f"<b>⏰ | Current Time: </b> {current_time}\n"
+                            f"———————————————\n")
+
             if len(trader_orders) == 0:
                 message_text += "<b>No trade</b>\n"
             else:
