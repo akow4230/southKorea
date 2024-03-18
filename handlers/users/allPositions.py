@@ -28,7 +28,7 @@ async def sendAllPositions():
                         f"<b>{'🟢 | Trade: LONG' if order['is_long'] else '🔴 | Trade: SHORT'}</b>\n"
                         f"<b>📊 | Entry price:</b> {round(float(order['entry_price']), 4)}\n"
                         f"<b>📈 | Market Price:</b> {round(float(order['mark_price']), 4)}\n"
-                        f"<b>💵 | PNL:</b> {order['pnl']}%\n"
+                        f"<b>💵 | PNL:</b> {order['roe']*100}%\n"
                         f"———————————————\n"
                     )
 
@@ -66,7 +66,7 @@ async def sendNewPositions():
                                                f"<b>{'🟢 | Trade: LONG' if order['side'] == 'buy' else '🔴 | Trade: SHORT'}</b>\n"
                                                f"<b>📊 | Entry price:</b> {round(float(order['entry_price']), 4)}\n"
                                                f"<b>📈 | Market Price:</b> {round(float(order['market_price']), 4)}\n"
-                                               f"<b>💵 | PNL:</b> {order['pnl']}%\n"
+                                               f"<b>💵 | PNL:</b> {order['reo_position']*100}%\n"
                                           )
                 await asyncio.sleep(1)
             await db.delete_id(order['id'])
