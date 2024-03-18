@@ -19,7 +19,7 @@ async def bot_start(message: types.Message):
     if is_admin:
         # Get the bot status from the database
         current_status = await get_bot_status()
-        text = "ON🟢" if current_status else "OFF🟢"
+        text = "ON🟢" if current_status else "OFF🔴"
 
         markup = InlineKeyboardMarkup(row_width=1)
         new_button = InlineKeyboardButton('🤖 BOT: '+text, callback_data='botStatus')
@@ -67,7 +67,7 @@ async def toggle_bot_status(callback_query: types.CallbackQuery):
     new_status = not current_status
     await db.update_status(new_status)
 
-    text = "ON🟢" if new_status else "OFF🟢"
+    text = "ON🟢" if new_status else "OFF🔴"
     new_button = InlineKeyboardButton('🤖 BOT: ' + text, callback_data='botStatus')
 
     markup = InlineKeyboardMarkup(row_width=1)

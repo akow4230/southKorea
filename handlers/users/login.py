@@ -23,7 +23,7 @@ async def check_password(message: types.Message):
     is_admin = await db.select_admin(adminid=message.from_user.id)
     if is_admin:
         current_status = await get_bot_status()
-        text = "ON🟢" if current_status else "OFF🟢"
+        text = "ON🟢" if current_status else "OFF🔴"
 
         markup = InlineKeyboardMarkup(row_width=1)
 
@@ -45,7 +45,7 @@ async def check_password(message: types.Message):
         await message.answer("Password correct!")
 
         current_status = await get_bot_status()
-        text = "ON🟢" if current_status else "OFF🟢"
+        text = "ON🟢" if current_status else "OFF🔴"
 
         markup = InlineKeyboardMarkup(row_width=1)
 
@@ -75,7 +75,7 @@ async def update_time_interval(message: types.Message):
                 await db.update_time(int(new_time))
                 await message.reply("Time interval updated successfully!")
                 current_status = await get_bot_status()
-                text = "ON🟢" if current_status else "OFF🟢"
+                text = "ON🟢" if current_status else "OFF🔴"
 
                 markup = InlineKeyboardMarkup(row_width=1)
 
