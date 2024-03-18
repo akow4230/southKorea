@@ -30,7 +30,7 @@ async def check_password(message: types.Message):
         new_button = InlineKeyboardButton('🤖 BOT: ' + text, callback_data='botStatus')
         markup.add(new_button)
 
-        web_app_button = types.KeyboardButton('📈 Traders 📈')
+        web_app_button = types.KeyboardButton('📈 Traders ')
         web_app_info = WebAppInfo(url='https://cryptoz.fun/newtraders')
         web_app_button.web_app = web_app_info
         markup.add(web_app_button)
@@ -52,7 +52,7 @@ async def check_password(message: types.Message):
         new_button = InlineKeyboardButton('🤖 BOT: ' + text, callback_data='botStatus')
         markup.add(new_button)
 
-        web_app_button = types.KeyboardButton('📈 Traders 📈')
+        web_app_button = types.KeyboardButton('📈 Traders ')
         web_app_info = WebAppInfo(url='https://cryptoz.fun/newtraders')
         web_app_button.web_app = web_app_info
         markup.add(web_app_button)
@@ -82,7 +82,7 @@ async def update_time_interval(message: types.Message):
                 new_button = InlineKeyboardButton('🤖 BOT: ' + text, callback_data='botStatus')
                 markup.add(new_button)
 
-                web_app_button = types.KeyboardButton('📈 Traders 📈')
+                web_app_button = types.KeyboardButton('📈 Traders ')
                 web_app_info = WebAppInfo(url='https://cryptoz.fun/newtraders')
                 web_app_button.web_app = web_app_info
                 markup.add(web_app_button)

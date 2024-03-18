@@ -25,7 +25,7 @@ async def bot_start(message: types.Message):
         new_button = InlineKeyboardButton('🤖 BOT: '+text, callback_data='botStatus')
         markup.add(new_button)
 
-        web_app_button = types.KeyboardButton('📈 Traders 📈')
+        web_app_button = types.KeyboardButton('📈 Traders ')
         web_app_info = WebAppInfo(url='https://cryptoz.fun/newtraders')
         web_app_button.web_app = web_app_info
         markup.add(web_app_button)
@@ -73,7 +73,7 @@ async def toggle_bot_status(callback_query: types.CallbackQuery):
     markup = InlineKeyboardMarkup(row_width=1)
     markup.add(new_button)
 
-    web_app_button = types.KeyboardButton('📈 Traders 📈')
+    web_app_button = types.KeyboardButton('📈 Traders ')
     web_app_info = types.WebAppInfo(url='https://cryptoz.fun/newtraders')
     web_app_button.web_app = web_app_info
     markup.add(web_app_button)
