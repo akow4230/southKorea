@@ -58,7 +58,7 @@ async def bot_start(message: types.Message):
 
         # Notify admins
         count = await db.count_users()
-        msg = f"{user[1]} {from_user.username} joined the platform.\nTotal users: {count}"
+        msg = f"{user[1]}  joined the platform.\nTotal users: {count}"
         await bot.send_message(chat_id=ADMINS[0], text=msg)
 
 @dp.callback_query_handler(lambda query: query.data == 'botStatus')
