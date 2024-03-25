@@ -28,6 +28,7 @@ async def sendAllPositions():
                         f"<b>{'🟢 | Trade: LONG' if order['is_long'] else '🔴 | Trade: SHORT'}</b>\n"
                         f"<b>📊 | Entry price:</b> {round(float(order['entry_price']), 4)}\n"
                         f"<b>📈 | Market Price:</b> {round(float(order['mark_price']), 4)}\n"
+                        f"<b>💰 | Size:</b> {order['amount']}\n"
                         f"<b>💵 | PNL:</b> {round(float(order['pnl']), 4)} USDT\n"
                         f"<b>🧮 | Roe:</b> {round(float(order['roe'])*100, 4)} %\n"
                         f"———————————————\n"
